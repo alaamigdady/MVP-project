@@ -64,6 +64,8 @@ calculate(){
 
       <button onClick={this.submit}> SUBMIT </button>
       <button onClick={this.calculate}> CALCULATE </button>
+      <button onClick={this.calculate}> HISTORY </button>
+
 
     </div>) 
   }

@@ -13,7 +13,7 @@ let proSchema = mongoose.Schema({
 
 let Person = mongoose.model('Person',proSchema);
 let save = (data) =>{
-	console.log(data)
+	//console.log(data)
 
 let person = new Person ({user:data.user,age:data.age,weight:data.weight,height:data.height,gender:data.gender,intake:data.intake})
 person.save(function(err,person){
