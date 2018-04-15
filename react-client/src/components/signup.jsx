@@ -16,6 +16,7 @@ class Signup extends React.Component {
     this.submit =this.submit.bind(this);
     this.onChange =this.onChange.bind(this);
     this.calculate =this.calculate.bind(this);
+    this.renderInfo =this.renderInfo.bind(this);
 
   
   }
@@ -41,6 +42,10 @@ calculate(){
   this.props.calculate(this.state.states)
 }
 
+renderInfo(){
+  this.props.renderInfo(this.state.states.user)
+}
+
 
 
 
@@ -64,7 +69,7 @@ calculate(){
 
       <button onClick={this.submit}> SUBMIT </button>
       <button onClick={this.calculate}> CALCULATE </button>
-      <button onClick={this.calculate}> HISTORY </button>
+      <button onClick={this.renderInfo}> HISTORY </button>
 
 
     </div>) 

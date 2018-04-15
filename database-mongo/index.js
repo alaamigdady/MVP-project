@@ -13,19 +13,16 @@ let proSchema = mongoose.Schema({
 
 let Person = mongoose.model('Person',proSchema);
 let save = (data) =>{
-	//console.log(data)
-
-let person = new Person ({user:data.user,age:data.age,weight:data.weight,height:data.height,gender:data.gender,intake:data.intake})
-person.save(function(err,person){
-	if (err) console.log('error')
-})
+	
+	let person = new Person ({user:data.user,age:data.age,weight:data.weight,height:data.height,gender:data.gender,intake:data.intake})
+	person.save(function(err,person){
+		if (err) console.log('error')
+	})
 
 }
 
 
 
-module.exports.Person = Person;
-module.exports.save = save;
 
 
 // db.on('error', function() {
@@ -43,14 +40,16 @@ module.exports.save = save;
 
 // var Item = mongoose.model('Item', itemSchema);
 
-// var selectAll = function(callback) {
-//   Item.find({}, function(err, items) {
-//     if(err) {
-//       callback(err, null);
-//     } else {
-//       callback(null, items);
-//     }
-//   });
-// };
+var selectAll = function(callback) {
+  Person.find({}, function(err, items) {
+    if(err) {
+      callback(err, null);
+    } else {
+      callback(null, items);
+    }
+  },{projection:{ _id: 0 }});
+};
 
-// module.exports.selectAll = selectAll;
+module.exports.Person = Person;
+module.exports.save = save;
+module.exports.selectAll = selectAll;
