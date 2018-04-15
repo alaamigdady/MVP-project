@@ -26,12 +26,6 @@ app.get('/', function (req, res) {
 });
 
 
-// app.get('/info',function(req,res){
-// 	//console.log(req.body)
-
-// 	res.send()
-// })
-
 app.post('/info',function(req,res){
 
 info.save(req.body)

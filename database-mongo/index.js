@@ -25,20 +25,7 @@ let save = (data) =>{
 
 
 
-// db.on('error', function() {
-//   console.log('mongoose connection error');
-// });
 
-// db.once('open', function() {
-//   console.log('mongoose connected successfully');
-// });
-
-// var itemSchema = mongoose.Schema({
-//   quantity: Number,
-//   description: String
-// });
-
-// var Item = mongoose.model('Item', itemSchema);
 
 var selectAll = function(callback) {
   Person.find({}, function(err, items) {
@@ -47,7 +34,7 @@ var selectAll = function(callback) {
     } else {
       callback(null, items);
     }
-  },{projection:{ _id: 0 }});
+  });
 };
 
 module.exports.Person = Person;

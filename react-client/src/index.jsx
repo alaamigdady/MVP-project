@@ -17,11 +17,8 @@ class App extends React.Component {
 
 
   renderInfo(user) {
-    //console.log('got here');
     $.get("/info", function(data) {
-
-      
-    })
+       })
     .done(data => {
       this.setState({
         data: data,
@@ -46,9 +43,13 @@ class App extends React.Component {
     else if (data.gender === 'female'){
       var x = (10*data.weight)+(6.25 * data.height) - (5*data.age) - 161; 
     }
+    else {
+      alert('enter male or female')
+    }
     this.setState({
       total: x
     })
+
 
   }
 
@@ -79,7 +80,7 @@ class App extends React.Component {
 render(){
   if(!this.state.data){
     return (<div>
-      <h1> HEALTH WATCHER</h1>
+      <h1> WEIGHT WATCHER</h1>
       <Signup submit={this.submit.bind(this)} calculate={this.calculate.bind(this)} renderInfo={this.renderInfo.bind(this)}/>
       <br></br> <br></br>
       YOUR DAILY INTAKE IS: {this.state.total}
@@ -91,12 +92,9 @@ render(){
 
   }
   else{
-    //console.log(this.state.data)
     var info = this.state.data.filter((user) => user.user === this.state.user )
-    console.log(info)
-   var x=9+7
-   return( <div> {info.map((obj)=>
-    <h3> name :{obj.user}, weight: {obj.weight}, age: {obj.age}</h3>)}
+     return( <div> {info.map((obj)=>
+        <h3> name :{obj.user}, weight: {obj.weight}, age: {obj.age}</h3>)}
    
        </div>)
   
